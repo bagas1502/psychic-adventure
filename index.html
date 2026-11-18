@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Русский шаг за шагом — курсы русского языка</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf4fb;--card:#fff;--panel:#f3f8fc;--ink:#2b3640;--soft:#5f6d79;--line:#d5e2ed;--e:cubic-bezier(.2,.8,.2,1);
+--green:#3fae00;--green-d:#2f8a00;--green-t:#2b7f00;--blue:#1aa3e8;--blue-d:#1485bd;--blue-t:#0b78ae;--orange:#f58a00;--orange-d:#c96d00;--purple:#b66ef0;--purple-d:#8f4fc4;--red:#f04545;--red-d:#c43030;--pink:#e0559f;--pink-d:#b93f82;--bad:#c22b2b;--font:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131f24;--card:#1b2a31;--panel:#223239;--ink:#f1f7fb;--soft:#a9b9c2;--line:#37464f;--green-t:#7ddc35;--blue-t:#5cc8ff;--bad:#ff8a8a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131f24;--card:#1b2a31;--panel:#223239;--ink:#f1f7fb;--soft:#a9b9c2;--line:#37464f;--green-t:#7ddc35;--blue-t:#5cc8ff;--bad:#ff8a8a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:700 16px/1.5 var(--font)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:50}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+*{-webkit-tap-highlight-color:transparent}
+a,button{outline:none}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none}
+h1,h2,h3,p{margin:0}h1,h2,h3{font-weight:900;text-wrap:balance}
+.in{max-width:1040px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.i{display:block;flex:none}
+/* header */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--card);border-bottom:2px solid var(--line)}
+.hd .row{display:flex;align-items:center;flex-wrap:wrap;gap:6px 16px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;margin-right:auto;font-weight:900;font-size:20px;color:var(--green-t);text-decoration:none}
+.logo i{width:34px;height:34px;border-radius:10px;background:var(--green);box-shadow:0 3px 0 var(--green-d);color:#fff;display:grid;place-items:center;font-style:normal;font-size:20px}
+.nav{display:flex;gap:4px}
+.nav a{padding:6px 12px;border-radius:12px;color:var(--soft);font-size:14px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s}
+.nav a:hover{background:var(--panel);color:var(--blue-t)}
+@media (max-width:760px){.nav{order:3;width:100%;overflow-x:auto}}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;background:var(--c,var(--green));color:#fff;border-radius:16px;padding:13px 26px;box-shadow:0 4px 0 var(--cd,var(--green-d));font-weight:900;font-size:15px;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;text-align:center;transition:transform .1s,box-shadow .1s,filter .2s}
+.btn:hover{filter:brightness(1.07)}.btn:active{transform:translateY(4px);box-shadow:none}
+.btn.ghost{background:var(--card);color:var(--blue-t);border:2px solid var(--line);box-shadow:0 4px 0 var(--line);padding:11px 24px}
+.btn.sm{padding:8px 18px;font-size:13px}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+/* hero */
+.hero{padding-block:44px 28px}
+.hg{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero h1{font-size:clamp(34px,5.6vw,56px);line-height:1.04;letter-spacing:-.5px}
+.hero .lead{color:var(--soft);font-size:18px;margin:14px 0 22px;max-width:46ch}
+.pts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pt{background:var(--card);border:2px solid var(--line);border-bottom:4px solid var(--k);border-radius:12px;padding:1px 12px;font-size:14px;font-weight:800}
+.txt>*{animation:rise .7s var(--e) backwards}.txt>:nth-child(2){animation-delay:.08s}.txt>:nth-child(3){animation-delay:.16s}.txt>:nth-child(4){animation-delay:.24s}
+.scene{position:relative;aspect-ratio:1;width:100%;max-width:400px;margin:0 auto;background:var(--blue);border-radius:36px;box-shadow:0 8px 0 var(--blue-d);display:grid;place-items:center;animation:pop .8s var(--e) .1s backwards}
+.ya{font-size:clamp(120px,22vw,190px);font-weight:900;color:#fff;line-height:1}
+.bb{position:absolute;background:var(--card);border:2px solid var(--line);border-bottom-width:5px;border-radius:16px;padding:5px 16px;font-size:18px;font-weight:900;animation:bob 3.2s ease-in-out infinite}
+.b1{top:9%;left:6%}.b2{top:47%;right:5%;animation-delay:.8s}.b3{bottom:8%;left:10%;animation-delay:1.6s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+@keyframes pop{from{opacity:0;transform:scale(.9)}}
+@media (max-width:760px){.hg{grid-template-columns:minmax(0,1fr)}.scene{max-width:280px}}
+/* sections */
+.sec{padding-block:52px}.alt{background:var(--card);border-block:2px solid var(--line)}
+.sec h2{font-size:clamp(26px,4vw,36px);line-height:1.1}
+.sub{color:var(--soft);margin:8px 0 26px;max-width:58ch}
+.rv{transition:opacity .6s var(--e),transform .6s var(--e),translate .2s,border-color .2s;transition-delay:var(--d,0s),var(--d,0s),0s,0s}
+.js .rv{opacity:0;transform:translateY(20px)}.js .rv.on{opacity:1;transform:none}
+.dot{flex:none;width:52px;height:52px;border-radius:50%;background:var(--c);box-shadow:0 4px 0 var(--cd);color:#fff;font-weight:900;font-size:17px;display:grid;place-items:center}.dot.w{font-size:12px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.fc{background:var(--card);border:2px solid var(--line);border-bottom:5px solid var(--c);border-radius:20px;padding:18px}
+.fc .dot{margin-bottom:12px}.fc h3{font-size:18px}.fc p{color:var(--soft);font-size:15px;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:2px 12px;font-size:14px;font-weight:800;color:var(--soft)}.chip b{color:var(--ink);font-weight:900}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.cc{display:flex;align-items:center;gap:14px;background:var(--card);border:2px solid var(--line);border-bottom:5px solid var(--c);border-radius:20px;padding:14px 16px;color:var(--ink);text-decoration:none}
+.cc:hover{translate:0 -3px;border-color:var(--c)}
+.cc b{display:block;font-size:18px;line-height:1.2}.cc span span{display:block;color:var(--soft);font-size:14px;line-height:1.35;margin-top:2px}
+.rows{display:grid;gap:10px}
+.srow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.5fr) minmax(0,1fr) 92px;gap:6px 16px;align-items:center;background:var(--panel);border:2px solid var(--line);border-bottom-width:4px;border-radius:16px;padding:10px 18px}
+.dy{display:flex;gap:5px;flex-wrap:wrap}.dy span{background:var(--card);border:2px solid var(--line);border-radius:9px;padding:0 8px;font-size:13px;font-weight:800;color:var(--blue-t)}
+.fmt{justify-self:start;border-radius:10px;padding:0 10px;font-size:12px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--blue);box-shadow:0 3px 0 var(--blue-d)}.fmt.on{background:var(--green);box-shadow:0 3px 0 var(--green-d)}
+@media (max-width:640px){.srow{grid-template-columns:minmax(0,1fr) auto}.srow .dy,.srow .tm{grid-column:1/-1}}
+.who{display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;align-items:center}
+.av{aspect-ratio:1;border-radius:28px;background:var(--card);border:2px solid var(--line);border-bottom-width:6px;display:grid;place-items:center;color:var(--purple)}
+.role{color:var(--purple-d);font-weight:900;margin:4px 0 10px}
+@media (prefers-color-scheme:dark){.role{color:var(--purple)}}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tile{min-width:110px;background:var(--card);border:2px solid var(--line);border-bottom:4px solid var(--c);border-radius:14px;padding:6px 16px}.tile b{display:block;font-size:26px;line-height:1.15}.tile span{color:var(--soft);font-size:13px}
+@media (max-width:640px){.who{grid-template-columns:minmax(0,1fr)}.av{max-width:160px}}
+.ap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.ap{grid-template-columns:minmax(0,1fr)}}
+.box{background:var(--panel);border:2px solid var(--line);border-bottom-width:5px;border-radius:22px;padding:20px;min-width:0}
+form{display:grid;gap:12px}.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media (max-width:520px){.fr{grid-template-columns:1fr}}
+label{display:grid;gap:4px;font-size:13px;font-weight:900;color:var(--soft)}
+input,select,textarea{width:100%;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-size:16px;font-weight:700;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);outline:0}textarea{resize:vertical;min-height:70px}
+.msg{font-weight:800;font-size:14px;min-height:20px}.msg.bad{color:var(--bad)}.msg.good{color:var(--green-t)}
+#result{animation:rise .4s var(--e)}#result textarea{margin:8px 0 12px}
+.ct{display:grid;gap:14px;margin:14px 0 0}.ct div{display:flex;gap:12px;align-items:center;overflow-wrap:anywhere}.ct a{color:var(--blue-t)}
+footer{padding-block:24px;color:var(--soft);font-size:14px}footer .in{display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="in row">
+<a class="logo" href="#top"><i aria-hidden="true">Я</i>Русский шаг за шагом</a>
+<nav class="nav" aria-label="Разделы"><a href="#courses">Курсы</a><a href="#schedule">Расписание</a><a href="#teacher">Преподаватель</a></nav>
+<a class="btn sm" href="#apply">Записаться</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="in hg">
+<div class="txt">
+<h1>Русский язык с живым преподавателем</h1>
+<p class="lead">Занятия по-русски, а когда нужно, объясняем и на узбекском. Говорим с первого занятия. Первое занятие пробное.</p>
+<div class="acts"><a class="btn" href="#apply">Записаться на пробное</a><a class="btn ghost" href="#courses">Смотреть курсы</a></div>
+<div class="pts"><span class="pt" style="--k:var(--green)">Группы до 8 человек</span><span class="pt" style="--k:var(--blue)">Уровни A1–B2</span><span class="pt" style="--k:var(--orange)">Практика на каждом занятии</span></div>
+</div>
+<div class="scene" aria-hidden="true"><span class="ya">Я</span><span class="bb b1">Привет!</span><span class="bb b2">Здравствуйте</span><span class="bb b3">Спасибо</span></div>
+</div></section>
+
+<section class="sec"><div class="in"><div class="fg" id="fg"></div></div></section>
+
+<section class="sec alt" id="courses"><div class="in">
+<h2 class="rv">Курсы</h2><p class="sub rv">Выбери свой уровень. Не знаешь какой? Определим на пробном занятии.</p>
+<div class="chips rv" id="chips"></div><div class="cg" id="cl"></div>
+</div></section>
+
+<section class="sec" id="schedule"><div class="in">
+<h2 class="rv">Расписание</h2><p class="sub rv">Время можно подобрать под тебя. Напиши об этом в заявке.</p>
+<div class="rows" id="rows"></div>
+</div></section>
+
+<section class="sec alt" id="teacher"><div class="in who">
+<div class="av rv" aria-hidden="true" id="av"></div>
+<div class="rv" style="--d:.1s"><h2 id="tn"></h2><div class="role">Преподаватель русского языка как иностранного</div><p id="bio"></p><div class="tiles" id="st"></div></div>
+</div></section>
+
+<section class="sec" id="apply"><div class="in">
+<h2 class="rv">Записаться</h2><p class="sub rv">Заполни форму. Мы подготовим сообщение, а ты отправишь его в Telegram.</p>
+<div class="ap">
+<div class="box rv"><form id="f" novalidate>
+<div class="fr"><label>Имя<input name="name" autocomplete="name"></label><label>Телефон<input name="phone" inputmode="tel" autocomplete="tel" placeholder="+998"></label></div>
+<div class="fr"><label>Уровень<select name="level" id="lv"></select></label><label>Удобное время<select name="time"><option value=""></option><option>Утро</option><option>День</option><option>Вечер</option></select></label></div>
+<label>Комментарий<textarea name="msg" rows="2"></textarea></label>
+<div class="msg" id="fOut" role="status"></div>
+<div><button class="btn" type="submit">Подготовить заявку</button></div>
+</form><div id="result"></div></div>
+<aside class="box rv" style="--d:.1s"><h3>Контакты</h3><div class="ct" id="ct"></div></aside>
+</div></div></section>
+</main>
+<footer><div class="in"><span id="ft1"></span><span id="ft2"></span></div></footer>
+
+<script>
+(function(){
+"use strict";
+document.documentElement.classList.add("js");
+/* ЗАМЕНИТЬ: данные преподавателя, контакты, цена, расписание */
+var SITE={teacher:"Имя Фамилия",tg:"username",phone:"+998 XX XXX XX XX",addr:"Город, улица, дом",price:"000 000 сум в месяц",dur:"3 месяца, 3 раза в неделю",
+bio:"Здесь будет рассказ об учительнице: образование, опыт работы, чем она отличается и как проходят занятия.",
+stats:[["00","лет опыта"],["00","студентов"],["00","групп"]],
+levels:[["A1","Начальный","С нуля: алфавит, знакомство, простые фразы"],["A2","Базовый","Говорим о жизни: семья, работа, покупки"],["B1","Средний","Свободное общение, чтение и письмо"],["B2","Продвинутый","Сложные тексты, русский для работы и учёбы"],["Клуб","Разговорный клуб","Говорим на темы, спорим, играем"],["Тест","Подготовка к экзамену","Тест на сертификат по русскому языку"]],
+sched:[["A1, утро",["Пн","Ср","Пт"],"09:00–10:30","Офлайн"],["A1, вечер",["Вт","Чт","Сб"],"18:00–19:30","Офлайн"],["A2",["Пн","Ср","Пт"],"18:00–19:30","Офлайн"],["B1",["Вт","Чт"],"19:00–20:30","Онлайн"],["B2",["Сб"],"10:00–12:00","Офлайн"],["Разговорный клуб",["Вс"],"11:00–12:00","Онлайн"]]};
+var P={users:"M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 13c-4 0-7 2-7 5v2h14v-2c0-3-3-5-7-5zm8 1c-.6 0-1.2.1-1.7.2 1.1 1 1.7 2.3 1.7 3.8v2h5v-2c0-2.5-2.2-4-5-4z",
+chat:"M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z",
+target:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0 3.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z",
+cap:"M12 3L1 9l11 6 9-4.9V17h2V9zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8z",
+tg:"M2.5 11.2L21 3.7c.8-.3 1.5.2 1.3 1.3l-3.2 15c-.2 1-.8 1.2-1.6.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.4-.1-.6-.6-.2L7.2 13.7l-4.7-1.5c-1-.3-1-1 0-1z",
+ph:"M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2c1.1.4 2.3.6 3.6.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.6 3.6a1 1 0 0 1-.2 1z",
+pin:"M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"};
+var ic=function(n,s,c){return'<svg class="i" width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true"'+(c?' style="color:'+c+'"':"")+'><path d="'+P[n]+'"/></svg>'};
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+var CC=["green","blue","orange","purple","red","pink"];
+var cv=function(c){return"--c:var(--"+c+");--cd:var(--"+c+"-d)"};
+
+$("#fg").innerHTML=[["users","Группы до 8 человек","Преподаватель успевает поработать с каждым.","green"],["chat","Говорим с первого занятия","Практика на каждом занятии, а не только правила.","blue"],["target","Уровни A1–B2","Группа подбирается под твой уровень.","orange"],["cap","Объясняем и на узбекском","Занятия по-русски, сложные места разбираем на узбекском.","purple"]]
+ .map(function(x,i){return'<div class="fc rv" style="'+cv(x[3])+';--d:'+i*.07+'s"><div class="dot">'+ic(x[0],26)+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'}).join("");
+$("#chips").innerHTML='<span class="chip">Длительность: <b>'+esc(SITE.dur)+'</b></span><span class="chip">Цена: <b>'+esc(SITE.price)+'</b></span>';
+$("#cl").innerHTML=SITE.levels.map(function(x,i){return'<a class="cc rv" href="#apply" data-i="'+i+'" style="'+cv(CC[i])+';--d:'+i*.06+'s"><span class="dot'+(x[0].length>2?" w":"")+'">'+x[0]+'</span><span><b>'+x[1]+'</b><span>'+x[2]+'</span></span></a>'}).join("");
+$("#rows").innerHTML=SITE.sched.map(function(r,i){return'<div class="srow rv" style="--d:'+i*.05+'s"><b>'+r[0]+'</b><span class="dy">'+r[1].map(function(d){return'<span>'+d+'</span>'}).join("")+'</span><span class="tm">'+r[2]+'</span><span class="fmt'+(r[3]=="Онлайн"?" on":"")+'">'+r[3]+'</span></div>'}).join("");
+$("#av").innerHTML=ic("cap",96);$("#tn").textContent=SITE.teacher;$("#bio").textContent=SITE.bio;
+$("#st").innerHTML=SITE.stats.map(function(s,i){return'<div class="tile" style="'+cv(["orange","blue","green"][i])+'"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join("");
+$("#lv").innerHTML='<option value="">Не знаю, определим на пробном</option>'+SITE.levels.map(function(x,i){return'<option value="'+i+'">'+x[0]+" · "+x[1]+'</option>'}).join("");
+$("#ct").innerHTML='<div>'+ic("ph",22,"var(--green)")+esc(SITE.phone)+'</div><div>'+ic("tg",22,"var(--blue)")+'<a href="https://t.me/'+esc(SITE.tg)+'" target="_blank" rel="noopener">@'+esc(SITE.tg)+'</a></div><div>'+ic("pin",22,"var(--red)")+esc(SITE.addr)+'</div>';
+$("#ft1").textContent="© "+new Date().getFullYear()+" Русский шаг за шагом";$("#ft2").textContent=SITE.teacher;
+
+var f=$("#f");
+$("#cl").addEventListener("click",function(e){var a=e.target.closest("[data-i]");if(a)f.elements.level.value=a.dataset.i});
+f.addEventListener("submit",function(e){
+  e.preventDefault();
+  var g=function(n){return f.elements[n].value.trim()},out=$("#fOut"),res=$("#result");
+  if(!g("name")||!g("phone")){out.className="msg bad";out.textContent="Заполни имя и телефон.";res.innerHTML="";return}
+  out.className="msg";out.textContent="";
+  var lv=f.elements.level.value,L=lv===""?null:SITE.levels[lv];
+  var txt="Заявка на курс\nИмя: "+g("name")+"\nТелефон: "+g("phone")+"\nУровень: "+(L?L[0]+" · "+L[1]:"не знаю")+"\nВремя: "+(g("time")||"—")+"\nКомментарий: "+(g("msg")||"—");
+  res.innerHTML='<p class="msg good" style="margin-top:14px">Заявка готова. Отправь её в Telegram:</p><textarea id="mo" readonly rows="5">'+esc(txt)+'</textarea><div class="acts"><a class="btn" href="https://t.me/'+encodeURIComponent(SITE.tg)+'?text='+encodeURIComponent(txt)+'" target="_blank" rel="noopener">Открыть Telegram</a><button class="btn ghost" type="button" id="cp">Скопировать</button></div>';
+  $("#cp").onclick=function(){var b=this,ta=$("#mo");try{navigator.clipboard.writeText(txt).then(function(){b.textContent="Скопировано"},function(){ta.select()})}catch(x){ta.select()}};
+});
+
+var els=document.querySelectorAll(".rv");
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target)}})},{threshold:.12});
+  els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add("on")})}
+})();
+</script>
+</body>
+</html>
